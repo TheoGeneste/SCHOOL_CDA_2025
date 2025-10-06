@@ -10,9 +10,8 @@ public class App {
         // Suppression de l'object
         // student = null;
         Scanner scanner = new Scanner(System.in);
-        boolean isInt = false;
-        String messageUser = "";
-        while (!isInt) {
+        
+        while (true) {
             System.out.println("Que voulez vous gérer?");
             System.out.println("1 - Gestions des étudiants");
             System.out.println("2 - Gestions des formateurs");
@@ -21,9 +20,7 @@ public class App {
             System.out.println("5 - Gestions des Notes");
             System.out.println("6 - Exit");
             try {
-                messageUser = scanner.nextLine();
-                int userChoice = Integer.parseInt(messageUser);
-                isInt = true;
+                int userChoice = Integer.parseInt(scanner.nextLine());
                 switch (userChoice) {
                     case 1:
                         Student.manageStudent();
@@ -41,6 +38,8 @@ public class App {
                         System.out.println("Gestions des notes");
                         break;
                     case 6:
+                        System.out.println("Au revoir");
+                        scanner.close();
                         return;
                     default:
                         System.out.println("Que voulez vous gérer? (Saississez le nombre associé a votre choix)");
@@ -50,7 +49,6 @@ public class App {
                         System.out.println("4 - Gestions des inscriptons");
                         System.out.println("5 - Gestions des Notes");
                         System.out.println("6 - Exit");
-                        isInt = false;
                         break;
                 }
             } catch (NumberFormatException e) {
@@ -58,8 +56,6 @@ public class App {
                 System.out.println("Votre choix doit-être un chiffre");
             }
         }
-
-        scanner.close();
     }
 ;
 }

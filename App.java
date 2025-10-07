@@ -26,7 +26,7 @@ public class App {
                         Student.manageStudent();
                         break;
                     case 2:
-                        System.out.println("Gestions des formateurs");
+                        Teacher.manageTeacher();
                         break;
                     case 3:
                         System.out.println("Gestions des cours");

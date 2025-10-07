@@ -6,9 +6,11 @@ public class SingletonData {
 
     private static SingletonData instance;
     private List<Student> students;
+    private List<Teacher> teachers;
 
     private SingletonData() {
         students = new ArrayList<>();
+        teachers = new ArrayList<>();
     }
 
     public static SingletonData getInstance() {
@@ -29,4 +31,17 @@ public class SingletonData {
     public void removeStudent(Student student) {
         students.remove(student);
     }
+
+    public List<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public void addTeacher(Teacher teacher) {
+        teachers.add(teacher);
+    }
+
+    public void removeTeacher(Teacher teacher) {
+        teachers.remove(teacher);
+    }
+    
 }

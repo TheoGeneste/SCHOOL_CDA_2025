@@ -35,8 +35,7 @@ public class App {
                         Cours.manageInscription();
                         break;
                     case 5:
-                        Notes.manageNotes();1
-                        
+                        Notes.manageNotes();
                         break;
                     case 6:
                         System.out.println("Au revoir");

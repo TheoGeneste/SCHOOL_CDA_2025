@@ -7,10 +7,14 @@ public class SingletonData {
     private static SingletonData instance;
     private List<Student> students;
     private List<Teacher> teachers;
+    private List<Cours> cours;
+    private List<Notes> notes;
 
     private SingletonData() {
         students = new ArrayList<>();
         teachers = new ArrayList<>();
+        cours = new ArrayList<>();
+        notes = new ArrayList<>();
     }
 
     public static SingletonData getInstance() {
@@ -43,5 +47,28 @@ public class SingletonData {
     public void removeTeacher(Teacher teacher) {
         teachers.remove(teacher);
     }
+
+    public List<Cours> getCours() {
+        return cours;
+    }
+
+    public void addCours(Cours cours) {
+        this.cours.add(cours);
+    }
     
+    public void removeCours(Cours cours) {
+        this.cours.remove(cours);
+    }
+
+    public List<Notes> getNotes() {
+        return notes;
+    }
+
+    public void addNotes(Notes note) {
+        notes.add(note);
+    }
+    
+    public void removeNotes(Notes note) {
+        notes.remove(note);
+    }
 }

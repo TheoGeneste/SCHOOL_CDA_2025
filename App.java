@@ -10,7 +10,7 @@ public class App {
         // Suppression de l'object
         // student = null;
         Scanner scanner = new Scanner(System.in);
-        
+
         while (true) {
             System.out.println("Que voulez vous gérer?");
             System.out.println("1 - Gestions des étudiants");
@@ -29,13 +29,14 @@ public class App {
                         Teacher.manageTeacher();
                         break;
                     case 3:
-                        System.out.println("Gestions des cours");
+                        Cours.manageCours();
                         break;
                     case 4:
-                        System.out.println("Gestions des inscriptions");
+                        Cours.manageInscription();
                         break;
                     case 5:
-                        System.out.println("Gestions des notes");
+                        Notes.manageNotes();1
+                        
                         break;
                     case 6:
                         System.out.println("Au revoir");

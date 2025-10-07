@@ -38,7 +38,7 @@ public class AdminStaff extends Person{
         teacher.setSalary(salary );
     }
 
-    public void createCours(String label , LocalDateTime startTime, LocalDateTime endTime, Teacher teacher, List<Student> students, Class level){
+    public void createCours(String label , LocalDateTime startTime, LocalDateTime endTime, Teacher teacher, List<Student> students, Classe level){
         Cours cours = new Cours(label, teacher, startTime, endTime, level);
         cours.addStudent(students);
     }

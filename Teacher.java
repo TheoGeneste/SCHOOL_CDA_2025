@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Teacher extends Person {
 
-    private static void showTeachers() {
+    public static void showTeachers() {
         List<Teacher> teachers = SingletonData.getInstance().getTeachers();
         for (Teacher teacher : teachers) {
             System.out.println(teacher.toString());
@@ -63,10 +63,28 @@ public class Teacher extends Person {
         List<Teacher> teachers = SingletonData.getInstance().getTeachers();
         for (Teacher teacher : teachers) {
             if (teacher.lastName.equals(teacherChoice)) {
+                for (Cours c : teacher.cours) {
+                    c.setTeacher(null);
+                }
                 SingletonData.getInstance().removeTeacher(teacher);
                 return;
             }
         }
+    }
+
+    private static void showCoursByTeacher() {
+        Scanner scanner = new Scanner(System.in);
+        showTeachers();
+        System.out.println("Choisissez le formateur (nom) :");
+        String teacherChoice = scanner.nextLine();
+        List<Teacher> teachers = SingletonData.getInstance().getTeachers();
+        for (Teacher t : teachers) {
+            if (t.lastName.equals(teacherChoice)) {
+                t.printCours();
+                return;
+            }
+        }
+
     }
 
     private List<Cours> cours;
@@ -112,7 +130,8 @@ public class Teacher extends Person {
             System.out.println("2 - Creation d'un formateur");
             System.out.println("3 - Modification d'un formateur");
             System.out.println("4 - Suppression d'un formateur");
-            System.out.println("5 - Retour");
+            System.out.println("5 - Afficher les cours d'un formateur");
+            System.out.println("6 - Retour");
             try {
                 int userChoice = Integer.parseInt(scanner.nextLine());
                 isInt = true;
@@ -130,6 +149,9 @@ public class Teacher extends Person {
                         deleteTeacher();
                         break;
                     case 5:
+                        showCoursByTeacher();
+                        break;
+                    case 6:
                         System.out.println("Retour");
                         return;
                     default:
@@ -145,6 +167,16 @@ public class Teacher extends Person {
             } catch (NumberFormatException e) {
                 System.out.println("Veullez rentrer un nombre");
             }
+        }
+    }
+
+    public String getLastName() {
+       return lastName;
+    }
+
+    private void printCours() {
+        for (Cours c : cours) {
+            System.out.println(c.toString());
         }
     }
 

@@ -17,6 +17,11 @@ public class Student extends Person {
         return lastName;
     }
 
+    public Classe getClassUser() {
+        return classUser;
+    }
+
+    
     @Override
     public String toString() {
         return super.toString() + " Etudiant : " + this.firstName + " " + this.lastName + " agé de " + this.age;
@@ -81,6 +86,10 @@ public class Student extends Person {
         for (Student student : students) {
             System.out.println(student.getLastName());
             if (student.getLastName().equals(studentChoice)) {
+                List<Cours> cours = SingletonData.getInstance().getCours();
+                for (Cours c : cours) {
+                    c.removeStudent(student);
+                }
                 students.remove(student);
                 return;
             }
